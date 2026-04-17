@@ -5,7 +5,6 @@ import ProdutoForm from "./components/ProdutoForm"
 import images from "./assets/images.jpg"
 import "./App.css"
 
-// 🔥 FIREBASE
 import { auth, db } from "./firebase"
 import {
   signInWithEmailAndPassword,
@@ -20,15 +19,12 @@ import {
 
 function App() {
 
-  // 🔐 LOGIN
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
   const [user, setUser] = useState(null)
 
-  // 📦 PRODUTOS
   const [produtos, setProdutos] = useState([])
 
-  // ================= LOGIN =================
 
   const login = async () => {
     try {
@@ -53,7 +49,6 @@ function App() {
     setUser(null)
   }
 
-  // ================= FIRESTORE =================
 
   const adicionarProduto = async (produto) => {
     if (!produto.nome || !produto.preco) {
@@ -84,7 +79,6 @@ function App() {
     buscarProdutos()
   }, [])
 
-  // ================= TELA LOGIN =================
 
   if (!user) {
     return (
@@ -108,15 +102,13 @@ function App() {
     )
   }
 
-  // ================= TELA PRINCIPAL =================
-
   return (
     <div>
       <div className="container">
 
         <StatusBar />
 
-        <button onClick={logout}>Sair</button>
+        
 
         <img
           src={images}
@@ -133,7 +125,7 @@ function App() {
             </li>
           ))}
         </ul>
-
+        <button onClick={logout}>Sair</button>
         <Footer />
 
       </div>
