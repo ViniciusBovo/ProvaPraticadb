@@ -30,8 +30,9 @@ function App() {
     try {
       const userCred = await signInWithEmailAndPassword(auth, email, senha)
       setUser(userCred.user)
-    } catch {
-      alert("Erro no login")
+    } catch (error) {
+      console.error(error);
+      alert("Erro no login: " + error.message)
     }
   }
 
@@ -39,8 +40,9 @@ function App() {
     try {
       await createUserWithEmailAndPassword(auth, email, senha)
       alert("Usuário criado!")
-    } catch {
-      alert("Erro no cadastro")
+    } catch (error) {
+      console.error(error);
+      alert("Erro no cadastro: " + error.message)
     }
   }
 
@@ -59,8 +61,9 @@ function App() {
     try {
       await addDoc(collection(db, "produtos"), produto)
       buscarProdutos()
-    } catch {
-      alert("Erro ao salvar")
+    } catch (error) {
+      console.error(error);
+      alert("Erro ao salvar: " + error.message)
     }
   }
 
