@@ -85,22 +85,26 @@ function App() {
 
   if (!user) {
     return (
-      <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <div className="login-container" style={{ textAlign: "center", marginTop: "50px" }}>
         <h2>Login</h2>
 
         <input
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
+          style={{ width: "100%", maxWidth: "320px", boxSizing: "border-box" }}
         /><br /><br />
 
         <input
           type="password"
           placeholder="Senha"
           onChange={(e) => setSenha(e.target.value)}
+          style={{ width: "100%", maxWidth: "320px", boxSizing: "border-box" }}
         /><br /><br />
 
-        <button onClick={login}>Login</button>
-        <button onClick={cadastrar}>Cadastrar</button>
+        <div className="login-buttons" style={{ display: "inline-block" }}>
+          <button onClick={login} style={{ marginRight: "10px" }}>Login</button>
+          <button onClick={cadastrar}>Cadastrar</button>
+        </div>
       </div>
     )
   }
